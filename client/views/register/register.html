@@ -1,0 +1,94 @@
+<template name="register">
+  <div class="jumbotron">
+    <div class="container text-center">
+      <h1 class="display-1">Please register</h1>
+      <p>Already have an account? <a href="/login">Click here to login</a></p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="card card-block" style="background: #eceeef">
+          <form>
+            <div class="form-group row">
+              <label for="firstName" class="col-sm-3 form-control-label">First name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="firstName" placeholder="Satoshi" required autofocus>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lastName" class="col-sm-3 form-control-label">Last name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lastName" placeholder="Nakamoto" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-3 form-control-label">Email address</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="email" placeholder="satoshin@gmx.com" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="username" class="col-sm-3 form-control-label">Username (optional)</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="username" placeholder="satoshi">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="password" class="col-sm-3 form-control-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="password" placeholder="**********" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="confirmPassword" class="col-sm-3 form-control-label">Confirm password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="**********" required>
+              </div>
+            </div>
+            <div class="form-group row" style="margin-bottom: 0">
+              <div class="col-sm-9 col-sm-offset-3">
+                <div class="checkbox" style="margin-top: 15px; margin-bottom: 0;">
+                  <label>
+                    <input type="checkbox" {{bind 'checked: show'}} required> I agree to the <a href="#terms" data-toggle="modal">Terms and Conditions</a>
+                  </label>
+                </div>
+              </div>
+            </div>
+            {{#if show}}
+              <div class="form-group row" style="margin-bottom: 0">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-secondary" style="margin-top: 30px">Register</button>
+                </div>
+              </div>
+            {{/if}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+        </div>
+        <div class="modal-body">
+          <p><strong>This Agreement was last modified on July 8th, 2015.</strong></p>
+          <p>
+            Please read these Terms and Conditions completely before registering on Satoshi Portal.
+            This Agreement documents the legally binding terms and conditions attached to the use of this site.
+          </p>
+          <p>By using Satoshi Portal you are agreeing to be bound by these Terms and Conditions.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

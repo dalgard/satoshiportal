@@ -1,0 +1,19 @@
+<template name="mainLayout">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <a class="navbar-brand" href="/">Satoshi Portal</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  {{>Template.dynamic template=content}}
+
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+</template>
