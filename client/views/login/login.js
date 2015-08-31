@@ -1,9 +1,11 @@
-Template.login.events({
-  'submit': function (event, template) {
-    event.preventDefault();
+Template.login.viewmodel({
+  // Declaring these only so that other developers will know that they exist
+  username: "",
+  password: "",
 
-    var username = template.find('#username').value;
-    var password = template.find('#password').value;
+  login: function () {
+    var username = this.username(),
+        password = this.password();
 
     Meteor.loginWithPassword(username, password, function (error) {
       if (error) {
@@ -14,4 +16,4 @@ Template.login.events({
       }
     });
   }
-});
+}, { persist: true });

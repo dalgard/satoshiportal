@@ -1,26 +1,27 @@
-Template.register.events({
-  'submit': function (event, template) {
-    event.preventDefault();
+Template.register.viewmodel({
+  // Declaring these only so that other developers will know that they exist
+  firstName: "",
+  lastName: "",
+  email: "",
+  username: "",
+  password: "",
+  confirmPassword: "",
+  showSubmit: false,
 
-    var firstName = template.find('#firstName').value;
-    var lastName = template.find('#lastName').value;
-    var email = template.find('#email').value;
-    var username = template.find('#username').value;
-    var password = template.find('#password').value;
-    var confirmPassword = template.find('#confirmPassword').value;
+  register: function () {
+    var email = this.email(),
+        username = this.username() || email,
+        password = this.password(),
+        confirm_password = this.confirmPassword();
 
-    if (!username) {
-      username = email;
-    }
-
-    if (password === confirmPassword) {
+    if (password === confirm_password) {
       Accounts.createUser({
         username: username,
         email: email,
         password: password,
         profile: {
-          firstName: firstName,
-          lastName: lastName
+          firstName: this.firstName(),
+          lastName: this.lastName()
         }
       }, function (error) {
         if (error) {
@@ -30,6 +31,6 @@ Template.register.events({
           FlowRouter.go('/dashboard');
         }
       });
-    }    
+    }
   }
-});
+}, { persist: true });
